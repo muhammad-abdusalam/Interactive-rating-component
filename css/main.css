@@ -1,0 +1,265 @@
+:root {
+  /* Colors */
+  --orange: hsl(25, 97%, 53%);
+  --white: hsl(0, 0%, 100%);
+  --light-grey: hsl(217, 12%, 63%);
+  --medium-grey: hsl(216, 12%, 54%);
+  --dark-blue: hsl(213, 19%, 18%);
+  --very-dark-blue: hsl(216, 12%, 8%);
+  --bullet-bck-color: hsl(216deg 10% 42% / 23%);
+}
+/* Global */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+img {
+  user-select: none;
+}
+h1 {
+  color: var(--white);
+}
+p {
+  color: var(--medium-grey);
+  font-size: 15px;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Overpass", sans-serif;
+  background-color: var(--very-dark-blue);
+}
+main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rate-state,
+.thank-state {
+  position: absolute;
+  background-color: var(--dark-blue);
+  width: 390px;
+  height: 410px;
+  padding: 25px;
+  border-radius: 20px;
+}
+/* Small Screen */
+@media (max-width: 480px) {
+  .rate-state,
+  .thank-state {
+    width: 350px;
+    padding: 25px;
+  }
+}
+/* Rate State Start */
+.rate-state {
+  display: flex;
+  flex-direction: column;
+
+  z-index: 2;
+}
+.rate-state picture {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-bottom: 35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--bullet-bck-color);
+}
+.rate-state h1 {
+  margin-bottom: 10px;
+}
+.rate-state p {
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+.rate-state .rate-bullets {
+  width: 100%;
+  margin-bottom: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 25px;
+}
+@media (max-width: 480px) {
+  .rate-state .rate-bullets {
+    width: 100%;
+    margin-bottom: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+  }
+}
+.rate-state .rate-bullets span {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--medium-grey);
+  background-color: var(--bullet-bck-color);
+
+  font-weight: bold;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: 0.3s;
+}
+.rate-state .rate-bullets span:hover {
+  color: var(--white);
+  background-color: var(--orange);
+}
+/* Would be added by js to checked rate*/
+.rate-state .rate-bullets span.clicked {
+  color: var(--white);
+  background-color: var(--light-grey);
+}
+.rate-state button {
+  width: 100%;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+
+  background-color: var(--orange);
+  color: var(--white);
+
+  font-weight: bold;
+  font-size: 18px;
+
+  transition: 0.3s;
+
+  cursor: pointer;
+  user-select: none;
+}
+.rate-state button:hover {
+  background-color: var(--white);
+  color: var(--orange);
+}
+/* Appears if user doesn't select a rate */
+p.popUp {
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  color: var(--orange);
+
+  display: none;
+}
+/* Shake the popup */
+.shake {
+  animation-name: shake;
+  animation-duration: 0.4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
+@keyframes shake {
+  0% {
+  }
+  25% {
+    left: 52%;
+  }
+  50% {
+    left: 50%;
+  }
+  75% {
+    left: 48%;
+  }
+  100% {
+    left: 50%;
+  }
+}
+/* Rate State End */
+
+/* Thank You State Start */
+.thank-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  opacity: 0%;
+  transition: opacity 0.5s;
+  z-index: 1;
+}
+.thank-state img {
+  margin-top: 20px;
+}
+.thank-state p:first-of-type {
+  margin-top: 30px;
+  padding: 6px 15px;
+  border-radius: 20px;
+
+  background-color: var(--bullet-bck-color);
+  color: var(--orange);
+}
+.thank-state h1 {
+  margin: 35px 0 10px;
+}
+.thank-state p:last-of-type {
+  line-height: 1.6;
+}
+/* Thank You State End */
+
+/* One of them would be added by js to rate-state or thank-state*/
+.show {
+  opacity: 100%;
+  z-index: 2;
+}
+.hide {
+  opacity: 0%;
+  z-index: 1;
+}
+
+/* Footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background-color: var(--dark-blue);
+  color: var(--white);
+
+  padding: 12px 25px;
+  border-top-left-radius: 35px;
+  border-top-right-radius: 35px;
+  width: fit-content;
+}
+@media (max-width: 480px) {
+  footer {
+    width: 350px;
+    padding: 10px 40px;
+    text-align: center;
+  }
+}
+footer a:first-of-type {
+  color: var(--medium-grey);
+  font-weight: bold;
+}
+footer a:last-of-type {
+  color: hsl(25deg 69% 57%);
+  font-weight: bold;
+}
