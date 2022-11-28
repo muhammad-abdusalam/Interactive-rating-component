@@ -6,7 +6,7 @@
   --medium-grey: hsl(216, 12%, 54%);
   --dark-blue: hsl(213, 19%, 18%);
   --very-dark-blue: hsl(216, 12%, 8%);
-  --bullet-bck-color: hsl(216deg 10% 42% / 23%);
+  /* --bullet-bck-color: hsl(216deg 10% 42% / 23%); */
 }
 /* Global */
 * {
@@ -23,6 +23,7 @@ img {
 }
 h1 {
   color: var(--white);
+  font-size: 30px;
 }
 p {
   color: var(--medium-grey);
@@ -33,7 +34,7 @@ a {
 }
 body {
   font-family: "Overpass", sans-serif;
-  background-color: var(--very-dark-blue);
+  background-color: #000;
 }
 main {
   min-height: 100vh;
@@ -44,7 +45,7 @@ main {
 .rate-state,
 .thank-state {
   position: absolute;
-  background-color: var(--dark-blue);
+  background-color: var(--very-dark-blue);
   width: 390px;
   height: 410px;
   padding: 25px;
@@ -75,7 +76,7 @@ main {
   justify-content: center;
   align-items: center;
 
-  background-color: var(--bullet-bck-color);
+  background-color: var(--dark-blue);
 }
 .rate-state h1 {
   margin-bottom: 10px;
@@ -114,7 +115,7 @@ main {
   align-items: center;
 
   color: var(--medium-grey);
-  background-color: var(--bullet-bck-color);
+  background-color: var(--dark-blue);
 
   font-weight: bold;
 
@@ -212,7 +213,7 @@ p.popUp {
   padding: 6px 15px;
   border-radius: 20px;
 
-  background-color: var(--bullet-bck-color);
+  background-color: var(--dark-blue);
   color: var(--orange);
 }
 .thank-state h1 {
@@ -240,7 +241,7 @@ footer {
   left: 50%;
   transform: translateX(-50%);
 
-  background-color: var(--dark-blue);
+  background-color: var(--very-dark-blue);
   color: var(--white);
 
   padding: 12px 25px;
@@ -260,6 +261,6 @@ footer a:first-of-type {
   font-weight: bold;
 }
 footer a:last-of-type {
-  color: hsl(25deg 69% 57%);
+  color: var(--orange);
   font-weight: bold;
 }
