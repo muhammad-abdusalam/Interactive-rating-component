@@ -13,6 +13,21 @@ let arrayOfBullets = Array.from(bulletsBox.children);
 let selectedRate = 0;
 
 // ##Events
+// Handling Hover Property of Rate Bullets In Different Devices
+bulletsBox.addEventListener("mouseover", function () {
+  if (window.navigator.maxTouchPoints > 0) {
+    // Disable Hover On Touch Devices
+    arrayOfBullets.forEach((bullet) => {
+      bullet.classList.add("no-hover");
+    });
+  } else {
+    // Enable Hover On Traditional Devices
+    arrayOfBullets.forEach((bullet) => {
+      bullet.classList.remove("no-hover");
+    });
+  }
+});
+
 // Selected Rate
 arrayOfBullets.forEach((bullet) => {
   bullet.onclick = function () {
@@ -20,7 +35,7 @@ arrayOfBullets.forEach((bullet) => {
       bullet.classList.remove("clicked");
       selectedRate = 0;
     } else {
-      chooseRate(bullet);
+      selectRate(bullet);
       // Hide popup
       popUp.style.display = "none";
     }
@@ -34,7 +49,7 @@ submitBtn.onclick = function () {
 
 // ##Functions
 // Select Rate Function
-function chooseRate(selected) {
+function selectRate(selected) {
   arrayOfBullets.forEach((bullet) => {
     bullet.classList.remove("clicked");
   });

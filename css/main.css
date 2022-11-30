@@ -124,14 +124,15 @@ main {
 
   transition: 0.3s;
 }
-.rate-state .rate-bullets span:hover {
+/* Next no-hover class would be handled by js */
+.rate-state .rate-bullets span:not(.no-hover):hover {
   color: var(--white);
   background-color: var(--orange);
 }
 /* Would be added by js to checked rate*/
 .rate-state .rate-bullets span.clicked {
-  color: var(--white);
-  background-color: var(--light-grey);
+  color: var(--white) !important;
+  background-color: var(--light-grey) !important;
 }
 .rate-state button {
   width: 100%;
@@ -153,6 +154,9 @@ main {
 .rate-state button:hover {
   background-color: var(--white);
   color: var(--orange);
+}
+.rate-state button:focus {
+  outline: none;
 }
 /* Appears if user doesn't select a rate */
 p.popUp {
